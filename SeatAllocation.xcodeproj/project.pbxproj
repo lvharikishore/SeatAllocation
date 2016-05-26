@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7761004C1CF73C6300206516 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E5C1CF6CE9700007473 /* ViewController.swift */; };
+		7761004D1CF73C6300206516 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E5C1CF6CE9700007473 /* ViewController.swift */; };
 		77693E5B1CF6CE9700007473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E5A1CF6CE9700007473 /* AppDelegate.swift */; };
 		77693E5D1CF6CE9700007473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E5C1CF6CE9700007473 /* ViewController.swift */; };
 		77693E601CF6CE9700007473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77693E5E1CF6CE9700007473 /* Main.storyboard */; };
@@ -18,6 +20,12 @@
 		77693E8C1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */; };
 		77693E8D1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */; };
 		77693E8E1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */; };
+		77693E941CF6FA8D00007473 /* seatLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E931CF6FA8D00007473 /* seatLayoutCell.swift */; };
+		77693E951CF6FA8D00007473 /* seatLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E931CF6FA8D00007473 /* seatLayoutCell.swift */; };
+		77693E961CF6FA8D00007473 /* seatLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E931CF6FA8D00007473 /* seatLayoutCell.swift */; };
+		77693E981CF7085800007473 /* SeatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E971CF7085800007473 /* SeatDetailsViewController.swift */; };
+		77693E991CF7085800007473 /* SeatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E971CF7085800007473 /* SeatDetailsViewController.swift */; };
+		77693E9A1CF7085800007473 /* SeatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E971CF7085800007473 /* SeatDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,8 @@
 		77693E7D1CF6CE9800007473 /* SeatAllocationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatAllocationUITests.swift; sourceTree = "<group>"; };
 		77693E7F1CF6CE9800007473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultpleLineFlowLayout.swift; sourceTree = "<group>"; };
+		77693E931CF6FA8D00007473 /* seatLayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = seatLayoutCell.swift; sourceTree = "<group>"; };
+		77693E971CF7085800007473 /* SeatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,14 +113,16 @@
 		77693E591CF6CE9700007473 /* SeatAllocation */ = {
 			isa = PBXGroup;
 			children = (
-				77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */,
 				77693E5A1CF6CE9700007473 /* AppDelegate.swift */,
+				77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */,
 				77693E5C1CF6CE9700007473 /* ViewController.swift */,
+				77693E931CF6FA8D00007473 /* seatLayoutCell.swift */,
 				77693E5E1CF6CE9700007473 /* Main.storyboard */,
 				77693E641CF6CE9800007473 /* Assets.xcassets */,
 				77693E661CF6CE9800007473 /* LaunchScreen.storyboard */,
 				77693E691CF6CE9800007473 /* Info.plist */,
 				77693E611CF6CE9800007473 /* SeatAllocation.xcdatamodeld */,
+				77693E971CF7085800007473 /* SeatDetailsViewController.swift */,
 			);
 			path = SeatAllocation;
 			sourceTree = "<group>";
@@ -264,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77693E981CF7085800007473 /* SeatDetailsViewController.swift in Sources */,
 				77693E5D1CF6CE9700007473 /* ViewController.swift in Sources */,
 				77693E5B1CF6CE9700007473 /* AppDelegate.swift in Sources */,
 				77693E631CF6CE9800007473 /* SeatAllocation.xcdatamodeld in Sources */,
+				77693E941CF6FA8D00007473 /* seatLayoutCell.swift in Sources */,
 				77693E8C1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7761004C1CF73C6300206516 /* ViewController.swift in Sources */,
+				77693E991CF7085800007473 /* SeatDetailsViewController.swift in Sources */,
+				77693E951CF6FA8D00007473 /* seatLayoutCell.swift in Sources */,
 				77693E731CF6CE9800007473 /* SeatAllocationTests.swift in Sources */,
 				77693E8D1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */,
 			);
@@ -284,6 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7761004D1CF73C6300206516 /* ViewController.swift in Sources */,
+				77693E9A1CF7085800007473 /* SeatDetailsViewController.swift in Sources */,
+				77693E961CF6FA8D00007473 /* seatLayoutCell.swift in Sources */,
 				77693E7E1CF6CE9800007473 /* SeatAllocationUITests.swift in Sources */,
 				77693E8E1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */,
 			);
@@ -496,6 +516,7 @@
 				77693E841CF6CE9800007473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		77693E851CF6CE9800007473 /* Build configuration list for PBXNativeTarget "SeatAllocationTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +525,7 @@
 				77693E871CF6CE9800007473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		77693E881CF6CE9800007473 /* Build configuration list for PBXNativeTarget "SeatAllocationUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +534,7 @@
 				77693E8A1CF6CE9800007473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

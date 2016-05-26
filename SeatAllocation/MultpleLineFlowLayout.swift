@@ -16,8 +16,8 @@ class MultpleLineFlowLayout: UICollectionViewFlowLayout {
     var itemHeight:CGFloat
     
     override init() {
-        itemWidth = CGFloat(50);
-        itemHeight = CGFloat(50);
+        itemWidth = CGFloat(75);
+        itemHeight = CGFloat(75);
         super.init()
     }
     
@@ -39,7 +39,7 @@ class MultpleLineFlowLayout: UICollectionViewFlowLayout {
         
         attributes.size = CGSizeMake(itemWidth,itemHeight);
         let xValue : CGFloat = itemWidth/2 + CGFloat(indexPath.row) * (itemWidth + CGFloat(space));
-        let yValue : CGFloat = itemHeight + CGFloat(indexPath.section) * (itemHeight + CGFloat(space));
+        let yValue : CGFloat = itemHeight/2 + CGFloat(indexPath.section) * (itemHeight + CGFloat(space));
         attributes.center = CGPointMake(xValue, yValue);
         return attributes;
     }

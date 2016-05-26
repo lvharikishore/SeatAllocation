@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var topHeaderView: UIView!
@@ -33,6 +33,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //let collectionView = UICollectionView(frame: self.detailView.bounds, collectionViewLayout: layout)
         //collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        
+        
+        // attach long press gesture to collectionView
+        
+        let longPressGuesture = UILongPressGestureRecognizer.init(target: self, action: #selector(ViewController.handleLongPress(_:)))
+        //var longPressGuesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer.init(target: self, action: handleLongPress)
+        longPressGuesture.delegate = self;
+        longPressGuesture.delaysTouchesBegan = true;
+        self.collectionView.addGestureRecognizer(longPressGuesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,27 +79,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath)
-        
-        cell.backgroundColor = UIColor.greenColor()
-        
-        for lbl in cell.contentView.subviews {
-            if (lbl.isKindOfClass(UILabel)) {
-                lbl.removeFromSuperview()
-            }
-        }
-        //UILabel *cellLabel = (UILabel*)[cell ViewWithTag:25];
-        let lblTitle : UILabel = UILabel.init(frame: CGRect(x: 0, y: 10, width: cell.bounds.size.width, height: 40))
-        lblTitle.tag = 200
-        lblTitle.text = String(indexPath.row)
-        cell.contentView.addSubview(lblTitle)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath) as! seatLayoutCell
+        cell.backgroundColor = UIColor.greenColor()//UIColor.init(red: 29/255.0, green: 155/255.0, blue: 46/255.0, alpha: 1.0)
+        cell.seatLabel.text = "1234567"//String(indexPath.row)
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
-        return CGSizeMake(50, 50)
+        return CGSizeMake(75, 75)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
@@ -100,12 +98,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
       
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-            //cell.textla
-        } else {
-            // Error indexPath is not on screen: this should never happen.
-        }
+//        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+//            //cell.textla
+//            
+//        } else {
+//            // Error indexPath is not on screen: this should never happen.
+//        }
     }
-
+    
+    func handleLongPress(longPressGuesture:UILongPressGestureRecognizer) {
+        if longPressGuesture.state == UIGestureRecognizerState.Began {
+            let p = longPressGuesture.locationInView(self.collectionView)
+            let indexPath = self.collectionView.indexPathForItemAtPoint(p)
+            
+            if let index = indexPath {
+                let cell = self.collectionView.cellForItemAtIndexPath(index) as! seatLayoutCell
+                cell.backgroundColor = cell.userInteractionEnabled ? UIColor.grayColor() : UIColor.init(red: 40/255.0, green: 125/255.0, blue: 255/255.0, alpha: 1.0)
+                cell.seatLabel.text = ""
+                cell.userInteractionEnabled = cell.userInteractionEnabled ? false : true
+                
+                // do stuff with your cell, for example print the indexPath
+            } else {
+            }
+        } else {
+            return
+        }
+        
+        
+    }
+    
 }
 
