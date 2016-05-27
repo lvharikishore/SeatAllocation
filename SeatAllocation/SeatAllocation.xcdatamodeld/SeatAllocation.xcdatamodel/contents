@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
+    <entity name="Employ" syncable="YES">
+        <attribute name="employId" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="indexPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" attributeType="String" syncable="YES"/>
+        <attribute name="odcNumber" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="odc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Odc" inverseName="employs" inverseEntity="Odc" syncable="YES"/>
+    </entity>
+    <entity name="Odc" syncable="YES">
+        <attribute name="columns" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="odcName" attributeType="String" syncable="YES"/>
+        <attribute name="odcNumber" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="rows" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="employs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Employ" inverseName="odc" inverseEntity="Employ" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Employ" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Odc" positionX="-117" positionY="240" width="128" height="118"/>
+    </elements>
 </model>
