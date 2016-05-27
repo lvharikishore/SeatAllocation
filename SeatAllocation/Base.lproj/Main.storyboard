@@ -6,6 +6,125 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--NewODC View Controller-->
+        <scene sceneID="qC7-Dm-x3b">
+            <objects>
+                <viewController id="lcg-7Z-8Tz" customClass="NewODCViewController" customModule="SeatAllocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OIW-6N-0K7"/>
+                        <viewControllerLayoutGuide type="bottom" id="A0p-ox-DuO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="psf-kR-dP8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Re-bb-foK">
+                                <rect key="frame" x="20" y="0.0" width="560" height="44"/>
+                                <items>
+                                    <navigationItem title="New ODC" id="weF-85-oGa">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="fRh-CD-pjB">
+                                            <connections>
+                                                <action selector="newOdcSaveAction:" destination="lcg-7Z-8Tz" id="4j1-t9-6IX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Efb-Kt-qIw">
+                                            <connections>
+                                                <action selector="NewOdcCancelAction:" destination="lcg-7Z-8Tz" id="JoK-hs-4gw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cQe-X0-Jfi">
+                                <rect key="frame" x="40" y="295" width="500" height="90"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter ODC Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNu-Mn-zqe">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="30"/>
+                                        <color key="backgroundColor" red="0.34971217105263158" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number of Rows" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7WC-TZ-jRk">
+                                        <rect key="frame" x="0.0" y="30" width="500" height="30"/>
+                                        <color key="backgroundColor" red="0.34971217105263158" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number of Columns" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NgA-2P-suM">
+                                        <rect key="frame" x="0.0" y="60" width="500" height="30"/>
+                                        <color key="backgroundColor" red="0.34971217105263158" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7WC-TZ-jRk" firstAttribute="height" secondItem="yNu-Mn-zqe" secondAttribute="height" id="6M8-mi-RLR"/>
+                                    <constraint firstItem="NgA-2P-suM" firstAttribute="width" secondItem="yNu-Mn-zqe" secondAttribute="width" id="AH0-xb-Onv"/>
+                                    <constraint firstAttribute="height" constant="150" id="D5Q-5H-PpV"/>
+                                    <constraint firstAttribute="trailing" secondItem="yNu-Mn-zqe" secondAttribute="trailing" constant="40" id="G0E-FJ-Tax"/>
+                                    <constraint firstItem="NgA-2P-suM" firstAttribute="top" secondItem="7WC-TZ-jRk" secondAttribute="bottom" constant="10" id="IGD-uS-J8r"/>
+                                    <constraint firstItem="yNu-Mn-zqe" firstAttribute="top" secondItem="cQe-X0-Jfi" secondAttribute="top" constant="10" id="IGz-d3-0me"/>
+                                    <constraint firstItem="yNu-Mn-zqe" firstAttribute="leading" secondItem="cQe-X0-Jfi" secondAttribute="leading" constant="40" id="Muc-nj-Ltn"/>
+                                    <constraint firstItem="NgA-2P-suM" firstAttribute="top" secondItem="7WC-TZ-jRk" secondAttribute="bottom" constant="10" id="NYP-C9-Vgj"/>
+                                    <constraint firstItem="7WC-TZ-jRk" firstAttribute="top" secondItem="yNu-Mn-zqe" secondAttribute="bottom" constant="10" id="Oq9-UV-oMP"/>
+                                    <constraint firstItem="NgA-2P-suM" firstAttribute="height" secondItem="yNu-Mn-zqe" secondAttribute="height" id="QdH-s8-MdR"/>
+                                    <constraint firstAttribute="bottom" secondItem="NgA-2P-suM" secondAttribute="bottom" constant="10" id="btd-Sq-h26"/>
+                                    <constraint firstAttribute="width" constant="520" id="i78-Ts-1Fs"/>
+                                    <constraint firstItem="7WC-TZ-jRk" firstAttribute="top" secondItem="yNu-Mn-zqe" secondAttribute="bottom" constant="10" id="wdT-S0-k2g"/>
+                                    <constraint firstItem="7WC-TZ-jRk" firstAttribute="width" secondItem="yNu-Mn-zqe" secondAttribute="width" id="zUX-9n-x2M"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="D5Q-5H-PpV"/>
+                                        <exclude reference="i78-Ts-1Fs"/>
+                                        <exclude reference="G0E-FJ-Tax"/>
+                                        <exclude reference="IGz-d3-0me"/>
+                                        <exclude reference="Muc-nj-Ltn"/>
+                                        <exclude reference="6M8-mi-RLR"/>
+                                        <exclude reference="Oq9-UV-oMP"/>
+                                        <exclude reference="wdT-S0-k2g"/>
+                                        <exclude reference="zUX-9n-x2M"/>
+                                        <exclude reference="AH0-xb-Onv"/>
+                                        <exclude reference="IGD-uS-J8r"/>
+                                        <exclude reference="NYP-C9-Vgj"/>
+                                        <exclude reference="QdH-s8-MdR"/>
+                                        <exclude reference="btd-Sq-h26"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cQe-X0-Jfi" secondAttribute="trailing" constant="40" id="69u-e9-PC2"/>
+                            <constraint firstItem="cQe-X0-Jfi" firstAttribute="centerY" secondItem="psf-kR-dP8" secondAttribute="centerY" constant="40" id="7LH-ec-Hxb"/>
+                            <constraint firstItem="3Re-bb-foK" firstAttribute="top" secondItem="psf-kR-dP8" secondAttribute="topMargin" id="HPr-sN-oy3"/>
+                            <constraint firstItem="cQe-X0-Jfi" firstAttribute="centerX" secondItem="psf-kR-dP8" secondAttribute="centerX" id="bpZ-ai-lpp"/>
+                            <constraint firstItem="cQe-X0-Jfi" firstAttribute="leading" secondItem="psf-kR-dP8" secondAttribute="leadingMargin" constant="40" id="n3H-eQ-d8H"/>
+                            <constraint firstItem="3Re-bb-foK" firstAttribute="trailing" secondItem="psf-kR-dP8" secondAttribute="trailingMargin" id="oAl-Wm-Oat"/>
+                            <constraint firstItem="cQe-X0-Jfi" firstAttribute="leading" secondItem="psf-kR-dP8" secondAttribute="leading" constant="40" id="qk1-cH-TnH"/>
+                            <constraint firstItem="3Re-bb-foK" firstAttribute="leading" secondItem="psf-kR-dP8" secondAttribute="leadingMargin" id="r73-bE-BNv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cQe-X0-Jfi" secondAttribute="trailing" constant="267" id="wjd-Bz-y4O"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bpZ-ai-lpp"/>
+                                <exclude reference="n3H-eQ-d8H"/>
+                                <exclude reference="wjd-Bz-y4O"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="numberOfColumns" destination="NgA-2P-suM" id="8pU-2K-9Ij"/>
+                        <outlet property="numberOfRows" destination="7WC-TZ-jRk" id="0TZ-pd-dLc"/>
+                        <outlet property="odcNameText" destination="yNu-Mn-zqe" id="59j-ZW-Iou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uU0-JX-Yc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="-361"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -78,7 +197,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="seatLabel" destination="VIc-04-qa5" id="RGQ-bD-1Xq"/>
-                                                    <segue destination="Ktk-iI-dXq" kind="modal" identifier="showDetail" id="bPN-jl-f6X"/>
+                                                    <segue destination="Ktk-iI-dXq" kind="presentation" identifier="showDetail" id="bPN-jl-f6X"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -98,9 +217,21 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKN-C5-RR1">
                                 <rect key="frame" x="86" y="20" width="474" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI7-fe-kte">
+                                        <rect key="frame" x="8" y="13" width="68" height="30"/>
+                                        <state key="normal" title="New ODC"/>
+                                        <connections>
+                                            <segue destination="lcg-7Z-8Tz" kind="presentation" identifier="showNewODC" id="3xb-h9-AjB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.1717722039" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="HI7-fe-kte" firstAttribute="leading" secondItem="yKN-C5-RR1" secondAttribute="leading" constant="8" id="H36-Kb-3ES"/>
+                                    <constraint firstItem="HI7-fe-kte" firstAttribute="top" secondItem="yKN-C5-RR1" secondAttribute="top" constant="13" id="SgV-hb-Y5X"/>
                                     <constraint firstAttribute="width" constant="474" id="T8e-3c-FlP"/>
+                                    <constraint firstAttribute="bottom" secondItem="HI7-fe-kte" secondAttribute="bottom" constant="12" id="enx-r6-0a2"/>
                                     <constraint firstAttribute="width" constant="474" id="uXd-th-pjc"/>
                                 </constraints>
                                 <variation key="default">

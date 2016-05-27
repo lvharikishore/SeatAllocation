@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate {
 
@@ -123,9 +124,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return
         }
-        
-        
     }
-    
+    /*
+    @IBAction func newODCActionClick(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedObjectCotext = appDelegate.managedObjectContext
+        let entityDescription = NSEntityDescription.entityForName("Odc", inManagedObjectContext:managedObjectCotext)
+        let newOdc = NSManagedObject(entity: entityDescription!, insertIntoManagedObjectContext:managedObjectCotext)
+        
+        newOdc.setValue("ODC-1", forKey: "odcName")
+        newOdc.setValue(3, forKey: "rows")
+        newOdc.setValue(4, forKey: "columns")
+        
+       
+        
+        //let documentDirectoryURL =  try! NSFileManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
+        
+         //NSLog("%@", documentDirectoryURL)
+        
+        do {
+            try newOdc.managedObjectContext?.save()
+        } catch {
+            print(error)
+        }
+    }
+ */
 }
 
