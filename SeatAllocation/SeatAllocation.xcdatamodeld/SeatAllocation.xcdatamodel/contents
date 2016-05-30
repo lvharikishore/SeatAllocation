@@ -14,13 +14,8 @@
         <attribute name="rows" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="employs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Employ" inverseName="odc" inverseEntity="Employ" syncable="YES"/>
     </entity>
-    <entity name="Test" syncable="YES">
-        <attribute name="test" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="test2" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Employ" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Odc" positionX="-117" positionY="240" width="128" height="103"/>
-        <element name="Test" positionX="-81" positionY="144" width="128" height="75"/>
     </elements>
 </model>

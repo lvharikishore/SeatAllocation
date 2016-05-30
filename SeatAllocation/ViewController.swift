@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UIGestureRecognizerDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var topHeaderView: UIView!
@@ -29,6 +29,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
+        }
+//
+        
+        
         let layout : MultpleLineFlowLayout = MultpleLineFlowLayout.init()
         self.collectionView.collectionViewLayout = layout
         
@@ -44,28 +54,52 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         longPressGuesture.delaysTouchesBegan = true;
         self.collectionView.addGestureRecognizer(longPressGuesture)
     }
-
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        let rowToSelect:NSIndexPath = NSIndexPath(forRow: 0, inSection: 0);  //slecting 0th row with 0th section
+        self.listTableView.selectRowAtIndexPath(rowToSelect, animated: true, scrollPosition: UITableViewScrollPosition.None);
+        //self.listTableView(self.listTableView, didSelectRowAtIndexPath: rowToSelect);
+        tableView(self.listTableView, didSelectRowAtIndexPath: rowToSelect)
+        
+        //[self.listTableView:self.listTableView didSelectRowAtIndexPath:selectedCellIndexPath];
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return odcList.count
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         self.listTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         let cell = listTableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
-        cell.textLabel?.text = self.odcList[indexPath.row]
+        
+        // Configure Table View Cell
+        configureCell(cell, atIndexPath: indexPath)
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        odcRows = rowsArray[indexPath.row]
-        odcColumns = columnsArray[indexPath.row]
+        
+        let record = fetchedResultsController.objectAtIndexPath(indexPath)
+        odcRows = (record.valueForKey("rows") as? Int)!
+        odcColumns = (record.valueForKey("columns") as? Int)!
+        
+        //odcRows = rowsArray[indexPath.row]
+        //odcColumns = columnsArray[indexPath.row]
         self.collectionView.reloadData()
     }
 
@@ -149,5 +183,73 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
  */
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Odc")
+        
+        // Add Sort Descriptors
+        let sortDescriptor = NSSortDescriptor(key: "odcName", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        // Initialize Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Configure Fetched Results Controller
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+    }()
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch (type) {
+        case .Insert:
+            if let indexPath = newIndexPath {
+                self.listTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Delete:
+            if let indexPath = indexPath {
+                self.listTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            break;
+        case .Update:
+            if let indexPath = indexPath {
+                let cell = self.listTableView.cellForRowAtIndexPath(indexPath)
+                configureCell(cell!, atIndexPath: indexPath)
+            }
+            break;
+        case .Move:
+            if let indexPath = indexPath {
+                self.listTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                self.listTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+            }
+            break;
+        }
+    }
+    
+    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+        // Fetch Record
+        if(fetchedResultsController.fetchedObjects?.count > 0) {
+            let record = fetchedResultsController.objectAtIndexPath(indexPath)
+            
+            //if (record.count > 0) {
+                if let name = record.valueForKey("odcName") as? String {
+                    cell.textLabel?.text = name
+                }
+            //}
+        }
+        
+        // Update Cell
+       
+        
+//        if let done = record.valueForKey("done") as? Bool {
+//            cell.doneButton.selected = done
+//        }
+    }
 }
 

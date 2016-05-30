@@ -41,6 +41,9 @@
 		77693E981CF7085800007473 /* SeatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E971CF7085800007473 /* SeatDetailsViewController.swift */; };
 		77693E991CF7085800007473 /* SeatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E971CF7085800007473 /* SeatDetailsViewController.swift */; };
 		77693E9A1CF7085800007473 /* SeatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E971CF7085800007473 /* SeatDetailsViewController.swift */; };
+		77FC446F1CFC536500CD5B98 /* CoredataDataCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC446E1CFC536500CD5B98 /* CoredataDataCotroller.swift */; };
+		77FC44701CFC536500CD5B98 /* CoredataDataCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC446E1CFC536500CD5B98 /* CoredataDataCotroller.swift */; };
+		77FC44711CFC536500CD5B98 /* CoredataDataCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC446E1CFC536500CD5B98 /* CoredataDataCotroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		775B467F1CF8639E00CA0C13 /* Employ+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Employ+CoreDataProperties.swift"; path = "SeatAllocation/Employ+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		775B46801CF8639E00CA0C13 /* Employ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Employ.swift; path = SeatAllocation/Employ.swift; sourceTree = "<group>"; };
-		775B46811CF8639E00CA0C13 /* Odc+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Odc+CoreDataProperties.swift"; path = "SeatAllocation/Odc+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		775B46821CF8639E00CA0C13 /* Odc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Odc.swift; path = SeatAllocation/Odc.swift; sourceTree = "<group>"; };
+		775B467F1CF8639E00CA0C13 /* Employ+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Employ+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		775B46801CF8639E00CA0C13 /* Employ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employ.swift; sourceTree = "<group>"; };
+		775B46811CF8639E00CA0C13 /* Odc+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Odc+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		775B46821CF8639E00CA0C13 /* Odc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Odc.swift; sourceTree = "<group>"; };
 		775B468F1CF874CD00CA0C13 /* NewODCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewODCViewController.swift; sourceTree = "<group>"; };
 		77693E571CF6CE9700007473 /* SeatAllocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeatAllocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77693E5A1CF6CE9700007473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultpleLineFlowLayout.swift; sourceTree = "<group>"; };
 		77693E931CF6FA8D00007473 /* seatLayoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = seatLayoutCell.swift; sourceTree = "<group>"; };
 		77693E971CF7085800007473 /* SeatDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatDetailsViewController.swift; sourceTree = "<group>"; };
+		77FC446E1CFC536500CD5B98 /* CoredataDataCotroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoredataDataCotroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +117,6 @@
 		77693E4E1CF6CE9700007473 = {
 			isa = PBXGroup;
 			children = (
-				775B467F1CF8639E00CA0C13 /* Employ+CoreDataProperties.swift */,
-				775B46801CF8639E00CA0C13 /* Employ.swift */,
-				775B46811CF8639E00CA0C13 /* Odc+CoreDataProperties.swift */,
-				775B46821CF8639E00CA0C13 /* Odc.swift */,
 				77693E591CF6CE9700007473 /* SeatAllocation */,
 				77693E711CF6CE9800007473 /* SeatAllocationTests */,
 				77693E7C1CF6CE9800007473 /* SeatAllocationUITests */,
@@ -137,6 +137,10 @@
 		77693E591CF6CE9700007473 /* SeatAllocation */ = {
 			isa = PBXGroup;
 			children = (
+				775B467F1CF8639E00CA0C13 /* Employ+CoreDataProperties.swift */,
+				775B46801CF8639E00CA0C13 /* Employ.swift */,
+				775B46811CF8639E00CA0C13 /* Odc+CoreDataProperties.swift */,
+				775B46821CF8639E00CA0C13 /* Odc.swift */,
 				77693E5A1CF6CE9700007473 /* AppDelegate.swift */,
 				77693E8B1CF6DFB800007473 /* MultpleLineFlowLayout.swift */,
 				77693E5C1CF6CE9700007473 /* ViewController.swift */,
@@ -148,6 +152,7 @@
 				77693E611CF6CE9800007473 /* SeatAllocation.xcdatamodeld */,
 				77693E971CF7085800007473 /* SeatDetailsViewController.swift */,
 				775B468F1CF874CD00CA0C13 /* NewODCViewController.swift */,
+				77FC446E1CFC536500CD5B98 /* CoredataDataCotroller.swift */,
 			);
 			path = SeatAllocation;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				775B46891CF8639E00CA0C13 /* Odc+CoreDataProperties.swift in Sources */,
 				77693E5B1CF6CE9700007473 /* AppDelegate.swift in Sources */,
 				77693E631CF6CE9800007473 /* SeatAllocation.xcdatamodeld in Sources */,
+				77FC446F1CFC536500CD5B98 /* CoredataDataCotroller.swift in Sources */,
 				77693E941CF6FA8D00007473 /* seatLayoutCell.swift in Sources */,
 				775B46861CF8639E00CA0C13 /* Employ.swift in Sources */,
 				77693E8C1CF6DFB800007473 /* MultpleLineFlowLayout.swift in Sources */,
@@ -320,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				775B468A1CF8639E00CA0C13 /* Odc+CoreDataProperties.swift in Sources */,
+				77FC44701CFC536500CD5B98 /* CoredataDataCotroller.swift in Sources */,
 				7761004C1CF73C6300206516 /* ViewController.swift in Sources */,
 				77693E991CF7085800007473 /* SeatDetailsViewController.swift in Sources */,
 				77693E951CF6FA8D00007473 /* seatLayoutCell.swift in Sources */,
@@ -337,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				775B468B1CF8639E00CA0C13 /* Odc+CoreDataProperties.swift in Sources */,
+				77FC44711CFC536500CD5B98 /* CoredataDataCotroller.swift in Sources */,
 				7761004D1CF73C6300206516 /* ViewController.swift in Sources */,
 				77693E9A1CF7085800007473 /* SeatDetailsViewController.swift in Sources */,
 				77693E961CF6FA8D00007473 /* seatLayoutCell.swift in Sources */,

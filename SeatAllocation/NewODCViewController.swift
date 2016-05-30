@@ -57,13 +57,32 @@ class NewODCViewController: UIViewController {
         let entityDescription = NSEntityDescription.entityForName("Odc", inManagedObjectContext:managedObjectCotext)
         let odc : Odc = Odc.init(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectCotext)
         
-        odc.odcName = "odc-2"
-        odc.rows = 2
-        odc.columns = 4
+        //let odc = managedObjectCotext.insert(Odc)
+        
+        odc.odcName = self.odcNameText.text!
+        odc.rows = Int(self.numberOfRows.text!)
+        odc.columns = Int(self.numberOfColumns.text!)
+        
+        //let dataDict : NSMutableDictionary = NSMutableDictionary()
+        //dataDict.setValue(self.odcNameText.text!, forKey: "odcName")
+        //dataDict.setValue(Int(self.numberOfRows.text!), forKey: "rows")
+        //dataDict.setValue(Int(self.numberOfColumns.text!), forKey: "columns")
         
         do {
             try odc.managedObjectContext?.save()
+            self.odcNameText.text = ""
+            self.numberOfRows.text = ""
+            self.numberOfColumns.text = ""
+            let alertController = UIAlertController(title: "Success", message: "Insert Success!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                print("Handle Ok logic here")
+            }))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
         } catch {
+            //var alert = (title: "Error", message: error, delegate: nil, cancelButtonTitle: "Ok")
+            let alertController = UIAlertController(title: "Error", message: String(error), preferredStyle: UIAlertControllerStyle.Alert)
+            self.presentViewController(alertController, animated: true, completion: nil)
             print(error)
         }
     }
